@@ -54,10 +54,16 @@
     </div>
     <div class="kicker">INTO MEMBERS · Logo direction</div>
     <h1>Interactive previews</h1>
-    <p class="lede">Live working previews of the “Layered O” mark — overlapping ellipses, Venn-diagram lineage. Best on desktop; each page has buttons to toggle arrangement and replay the animation.</p>
+    <p class="lede">Live working previews of the “Layered O” mark — overlapping ovals, Venn-diagram lineage, geometric and organic. Best on desktop; each page has buttons to toggle arrangement and replay the animation.</p>
   </header>
 
   <div class="cards">
+    <a class="card" href="./organic.html">
+      <div class="thumb" id="organicThumb"></div>
+      <div class="ct"><div class="t">Organic oval <span class="badge">newest</span></div><div class="d">Hand-drawn, irregular ovals with the O breathing in the center — a softer sibling to the geometric rosette. Toggle 3 / 5 / 7 ovals.</div></div>
+      <div class="arrow">→</div>
+    </a>
+
     <a class="card" href="./venn.html">
       <div class="thumb">
         <svg width="56" height="56" viewBox="0 0 1024 1024"><g style="mix-blend-mode:multiply">
@@ -67,7 +73,7 @@
           <ellipse cx="408" cy="512" rx="236" ry="300" transform="rotate(90 408 512)" fill="#14110E" fill-opacity="0.06" stroke="#14110E" stroke-width="20"/>
         </g></svg>
       </div>
-      <div class="ct"><div class="t">Venn direction <span class="badge">newest</span></div><div class="d">Overlap exploration — toggle arrangement (rosette / Venn-4 / Venn-3) and palette (mono / tint). Watch the sets assemble.</div></div>
+      <div class="ct"><div class="t">Venn direction</div><div class="d">Overlap exploration — toggle arrangement (rosette / Venn-4 / Venn-3) and palette (mono / tint). Watch the sets assemble.</div></div>
       <div class="arrow">→</div>
     </a>
 
@@ -109,5 +115,15 @@
   <div class="goldline"></div>
   <p class="note">Working previews · not final art · interactive on desktop</p>
 </div>
+<script>
+(function(){
+  function mb(s){return function(){s|=0;s=s+0x6D2B79F5|0;var t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+  function op(cx,cy,rx,ry,rot,seed){var rnd=mb(seed),K=16,ph1=rnd()*6.283,ph2=rnd()*6.283,ph3=rnd()*6.283,a1=0.05+rnd()*0.05,a2=0.03+rnd()*0.035,a3=0.015+rnd()*0.02,rr=rot*Math.PI/180,cs=Math.cos(rr),sn=Math.sin(rr),P=[];for(var k=0;k<K;k++){var t=2*Math.PI*k/K,w=1+a1*Math.sin(2*t+ph1)+a2*Math.sin(3*t+ph2)+a3*Math.sin(5*t+ph3),x=rx*w*Math.cos(t),y=ry*w*Math.sin(t);P.push([cx+x*cs-y*sn,cy+x*sn+y*cs]);}var d="M "+P[0][0].toFixed(1)+" "+P[0][1].toFixed(1)+" ";for(var i=0;i<K;i++){var p0=P[(i-1+K)%K],p1=P[i],p2=P[(i+1)%K],p3=P[(i+2)%K],c1x=p1[0]+(p2[0]-p0[0])/6,c1y=p1[1]+(p2[1]-p0[1])/6,c2x=p2[0]-(p3[0]-p1[0])/6,c2y=p2[1]-(p3[1]-p1[1])/6;d+="C "+c1x.toFixed(1)+" "+c1y.toFixed(1)+" "+c2x.toFixed(1)+" "+c2y.toFixed(1)+" "+p2[0].toFixed(1)+" "+p2[1].toFixed(1)+" ";}return d+"Z";}
+  var rots=[-72,-36,0,36,72];
+  var paths=rots.map(function(r,i){return '<path d="'+op(512,512,282,344,r,1000+i*97+35)+'"/>';}).join("");
+  var el=document.getElementById("organicThumb");
+  if(el) el.innerHTML='<svg width="56" height="56" viewBox="0 0 1024 1024" fill="none"><g stroke="#14110E" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">'+paths+'</g></svg>';
+})();
+</script>
 </body>
 </html>
