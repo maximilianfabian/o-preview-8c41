@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex,nofollow">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>INTO MEMBERS — Layered O · animated preview</title>
+<style>
+  :root{
+    --ink:#14110E;
+    --cream:#F2F5F2;
+    --label:rgba(0,0,0,0.55);
+    --tert:rgba(0,0,0,0.32);
+    --line:rgba(0,0,0,0.08);
+    --gold:#C4A265;
+    --charcoal:#1C1A18;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    position:relative;
+    -webkit-font-smoothing:antialiased;
+    padding:0 0 120px;
+  }
+  /* atmosphere: faint mood blobs over cream, mirrors the app backdrop */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(40% 50% at 18% 20%, rgba(199,178,214,0.28), transparent 70%),
+      radial-gradient(45% 55% at 82% 22%, rgba(244,206,184,0.30), transparent 70%),
+      radial-gradient(50% 60% at 50% 95%, rgba(206,221,217,0.45), transparent 70%),
+      linear-gradient(160deg,#E7EDE9,#F2F5F2 55%,#CEDDD9);
+  }
+  .wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:0 24px}
+
+  header{padding:64px 0 12px;text-align:center}
+  .kicker{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--tert)}
+  header h1{font-weight:300;font-size:32px;letter-spacing:-0.3px;color:rgba(0,0,0,0.72);margin-top:10px}
+  header p{font-size:14px;font-weight:300;color:var(--label);margin-top:10px;line-height:1.5}
+
+  .card{
+    background:rgba(255,255,255,0.46);
+    border:0.5px solid rgba(255,255,255,0.7);
+    box-shadow:0 1px 0 rgba(255,255,255,0.5) inset, 0 18px 50px -28px rgba(0,0,0,0.30);
+    border-radius:26px;
+    padding:34px;
+    margin-top:26px;
+    backdrop-filter:blur(8px);
+  }
+  .seclabel{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--tert);margin-bottom:4px}
+  .secnote{font-size:13px;font-weight:300;color:var(--label);line-height:1.55;margin-bottom:22px;max-width:62ch}
+
+  /* hero stage */
+  .stage{display:flex;flex-direction:column;align-items:center;justify-content:center;
+    min-height:360px;border-radius:20px;
+    background:linear-gradient(160deg,#EAF0EC,#F4F6F3 55%,#D9E5E1);
+    border:0.5px solid rgba(255,255,255,0.6);position:relative;overflow:hidden}
+  .stage::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(38% 46% at 30% 28%,rgba(199,178,214,0.22),transparent 70%),
+              radial-gradient(40% 50% at 78% 70%,rgba(244,206,184,0.22),transparent 70%)}
+  .hero{position:relative;z-index:1}
+  .hero ellipse{vector-effect:non-scaling-stroke}
+
+  /* draw-on reveal */
+  svg.draw .mark ellipse{stroke-dasharray:2000;stroke-dashoffset:2000;
+    animation:draw 1.05s cubic-bezier(.22,.61,.36,1) forwards;
+    animation-delay:calc(var(--i) * .15s)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  /* loader rotation */
+  svg.spin .mark{transform-box:fill-box;transform-origin:center;animation:spin 24s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  /* breathe */
+  svg.breathe .mark{transform-box:fill-box;transform-origin:center;animation:breathe 3.6s ease-in-out infinite}
+  @keyframes breathe{0%,100%{transform:scale(.99);opacity:.92}50%{transform:scale(1.012);opacity:1}}
+
+  .lockup{display:flex;flex-direction:column;align-items:center;gap:26px}
+  .wordmark{text-align:center;line-height:1.5}
+  .wordmark div{font-weight:300;text-transform:uppercase;color:rgba(0,0,0,0.78)}
+  .wordmark .l1{font-size:22px;letter-spacing:0.62em;text-indent:0.62em}
+  .wordmark .l2{font-size:22px;letter-spacing:0.42em;text-indent:0.42em}
+
+  .controls{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px}
+  .btn{font-family:inherit;font-size:13px;font-weight:400;letter-spacing:0.2px;
+    color:rgba(0,0,0,0.78);background:rgba(255,255,255,0.7);
+    border:1px solid rgba(0,0,0,0.14);border-radius:999px;padding:9px 18px;cursor:pointer;
+    transition:all .15s ease}
+  .btn:hover{background:#fff;border-color:rgba(0,0,0,0.26)}
+  .btn.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+  /* size ramp */
+  .ramp{display:grid;grid-template-columns:120px repeat(6,1fr);gap:14px;align-items:center}
+  .ramp .rh{font-size:11px;font-weight:300;color:var(--label)}
+  .ramp .ch{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--tert);text-align:center}
+  .chip{display:flex;align-items:center;justify-content:center;
+    aspect-ratio:1;border-radius:14px;background:linear-gradient(160deg,#EAF0EC,#F3F6F3);
+    border:0.5px solid rgba(255,255,255,0.7);box-shadow:0 6px 16px -12px rgba(0,0,0,0.4)}
+  .verdict{font-size:11px;font-weight:300;margin-top:2px;display:flex;align-items:center;gap:6px}
+  .dot{width:7px;height:7px;border-radius:50%}
+  .ok{background:#3f9d6a}.warn{background:#c79a3a}.bad{background:#c25b4e}
+
+  /* app icons */
+  .icons{display:flex;gap:30px;flex-wrap:wrap;justify-content:center;align-items:flex-start}
+  .iconcol{text-align:center}
+  .squircle{width:150px;height:150px;border-radius:34px;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 22px 50px -22px rgba(0,0,0,0.5);border:0.5px solid rgba(0,0,0,0.06)}
+  .sq-cream{background:linear-gradient(160deg,#E7EDE9,#F2F5F2 55%,#CEDDD9)}
+  .sq-dark{background:linear-gradient(160deg,#26231F,#1C1A18)}
+  .iconcap{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--tert);margin-top:12px}
+  .realrow{display:flex;gap:18px;align-items:center;justify-content:center;margin-top:8px}
+  .realtile{width:60px;height:60px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(160deg,#E7EDE9,#F2F5F2 55%,#CEDDD9);box-shadow:0 8px 20px -12px rgba(0,0,0,0.5)}
+
+  /* tab mock */
+  .tabbar{display:flex;align-items:center;justify-content:space-around;gap:6px;
+    width:330px;max-width:100%;margin:0 auto;padding:14px 16px;border-radius:26px;
+    background:rgba(255,255,255,0.55);border:0.5px solid rgba(255,255,255,0.6);
+    box-shadow:0 16px 40px -24px rgba(0,0,0,0.45);backdrop-filter:blur(10px)}
+  .tabbar .ic{opacity:0.55}
+  .tabbar .ic.on{opacity:0.95}
+  .tabbar svg{display:block}
+
+  .foot{font-size:12px;font-weight:300;color:var(--label);line-height:1.6;margin-top:30px;text-align:center}
+  .foot b{font-weight:500;color:rgba(0,0,0,0.7)}
+  .goldline{height:1px;width:60px;background:var(--gold);opacity:.5;margin:26px auto 0;border-radius:1px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">Brand mark · preview</div>
+    <h1>INTO MEMBERS — Layered O</h1>
+    <p>Recommended treatment + live animation. Nothing in the app has been changed — this is a standalone preview.</p>
+  </header>
+
+  <!-- HERO -->
+  <section class="card">
+    <div class="seclabel">The mark, alive</div>
+    <div class="secnote">Five ovals drawing into a shared center — “worlds aligning.” The reveal ends static (no perpetual motion on launch). Toggle the loader’s slow rotation and the breath to feel each.</div>
+    <div class="stage">
+      <div class="lockup">
+        <div id="heroHost"></div>
+        <div class="wordmark">
+          <div class="l1">INTO</div>
+          <div class="l2">MEMBERS</div>
+        </div>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="btn active" data-mode="draw">↺ Replay reveal</button>
+      <button class="btn" data-mode="spin">Loader rotation</button>
+      <button class="btn" data-mode="breathe">Breathe</button>
+      <button class="btn" data-mode="none">Static</button>
+    </div>
+  </section>
+
+  <!-- LEGIBILITY RAMP -->
+  <section class="card">
+    <div class="seclabel">Why one mark can’t do every size</div>
+    <div class="secnote">Same art, shrunk: the full 5-ring rosette dissolves into a smudge below ~48px. The fix is an <b>optically-tiered system</b> — fewer rings + heavier stroke as the surface shrinks — so the mark stays crisp on the tab bar, favicon and Android monochrome icon.</div>
+    <div class="ramp" id="ramp"></div>
+  </section>
+
+  <!-- IN CONTEXT: tab + icons -->
+  <section class="card">
+    <div class="seclabel">In context</div>
+    <div class="secnote">Home-tab glyph (active vs inactive), and the app icon on cream + charcoal. “Actual home-screen size” uses the reduced 3-ring so it reads at thumbnail scale.</div>
+
+    <div class="tabbar" id="tabbar"></div>
+
+    <div style="height:30px"></div>
+
+    <div class="icons">
+      <div class="iconcol">
+        <div class="squircle sq-cream" id="iconCream"></div>
+        <div class="iconcap">iOS · cream</div>
+      </div>
+      <div class="iconcol">
+        <div class="squircle sq-dark" id="iconDark"></div>
+        <div class="iconcap">iOS · charcoal</div>
+      </div>
+      <div class="iconcol">
+        <div class="realrow" id="realRow"></div>
+        <div class="iconcap">actual home-screen size (60px)</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="goldline"></div>
+  <div class="foot">
+    <b>Recommended system:</b> full 5-ring Layered O for hero surfaces (splash, paywall, membership watermark, loader) ·
+    reduced 3-ring for headers &amp; mid sizes · single O for tab / favicon / monochrome. Built as parametric SVG → crisp everywhere, retires the old raster pipeline.<br/>
+    Reveal = launch &amp; cold-start · slow rotation = loading · ink stays mono (gold reserved for status).
+  </div>
+</div>
+
+<script>
+  // Parametric Layered-O generator (matches your 13_layered_o_icon_black.svg geometry).
+  const ROT = {1:[0], 3:[-18,0,18], 5:[-18,-9,0,9,18]};
+  function mark({count=5, stroke=22, size=200, color="#14110E", cls=""}){
+    const rots = ROT[count] || [0];
+    const rx = count===1 ? 300 : 282;
+    const ry = count===1 ? 332 : 344;
+    const ell = rots.map((r,i)=>
+      `<ellipse cx="512" cy="512" rx="${rx}" ry="${ry}" transform="rotate(${r} 512 512)" pathLength="2000" style="--i:${i}"/>`
+    ).join("");
+    return `<svg class="hero ${cls}" width="${size}" height="${size}" viewBox="0 0 1024 1024" fill="none">
+      <g class="mark" stroke="${color}" stroke-width="${stroke}" stroke-linecap="round" fill="none">${ell}</g></svg>`;
+  }
+
+  // Hero
+  const heroHost = document.getElementById("heroHost");
+  function renderHero(modeCls){ heroHost.innerHTML = mark({count:5, stroke:20, size:208, cls:modeCls}); }
+  renderHero("draw");
+
+  document.querySelectorAll(".controls .btn").forEach(b=>{
+    b.addEventListener("click", ()=>{
+      document.querySelectorAll(".controls .btn").forEach(x=>x.classList.remove("active"));
+      b.classList.add("active");
+      const m = b.dataset.mode;
+      renderHero(m === "none" ? "" : m);   // re-render forces animation restart
+    });
+  });
+
+  // Legibility ramp
+  const SIZES = [{s:24,l:"24 · tab"},{s:32,l:"32"},{s:48,l:"48"},{s:64,l:"64"},{s:96,l:"96"},{s:140,l:"140 · splash"}];
+  const TIERS = [
+    {count:5, stroke:22, name:"Full · 5 rings", verdicts:["bad","bad","warn","ok","ok","ok"]},
+    {count:3, stroke:44, name:"Reduced · 3 rings", verdicts:["warn","ok","ok","ok","ok","ok"]},
+    {count:1, stroke:62, name:"Single O", verdicts:["ok","ok","ok","ok","ok","ok"]},
+  ];
+  const ramp = document.getElementById("ramp");
+  let html = `<div></div>` + SIZES.map(z=>`<div class="ch">${z.l}</div>`).join("");
+  TIERS.forEach(t=>{
+    html += `<div class="rh">${t.name}</div>`;
+    SIZES.forEach((z,i)=>{
+      const v = t.verdicts[i];
+      html += `<div><div class="chip">${mark({count:t.count, stroke:t.stroke, size:Math.min(z.s, 96)})}</div></div>`;
+    });
+  });
+  ramp.innerHTML = html;
+
+  // Tab bar mock — home glyph = single O reduced; peers are simple line icons
+  const tab = document.getElementById("tabbar");
+  const peer = (d,on)=>`<div class="ic ${on?'on':''}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,0.9)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${d}</svg></div>`;
+  tab.innerHTML =
+    `<div class="ic on">${mark({count:1, stroke:64, size:26})}</div>` +
+    peer('<path d="M12 21s-6-5.7-6-10a6 6 0 1112 0c0 4.3-6 10-6 10z"/><circle cx="12" cy="11" r="2"/>') +
+    peer('<rect x="4" y="5" width="16" height="14" rx="1.5"/><path d="M8 9h8M8 13h8M8 17h5"/>') +
+    peer('<path d="M21 11.5a8.4 8.4 0 01-11.9 7.6L3 21l1.9-6.1A8.4 8.4 0 1121 11.5z"/>') +
+    peer('<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/>');
+
+  // App icons
+  document.getElementById("iconCream").innerHTML = mark({count:5, stroke:22, size:96, color:"#14110E"});
+  document.getElementById("iconDark").innerHTML  = mark({count:5, stroke:22, size:96, color:"#FFFFFF"});
+  document.getElementById("realRow").innerHTML =
+    `<div class="realtile">${mark({count:3, stroke:46, size:40})}</div>` +
+    `<div class="realtile">${mark({count:1, stroke:64, size:40})}</div>`;
+</script>
+</body>
+</html>
