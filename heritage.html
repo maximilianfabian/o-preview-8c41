@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex,nofollow">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>INTO MEMBERS — Round 3 · the Heritage family</title>
+<style>
+  :root{--ink:#14110E;--cream:#F2F5F2;--label:rgba(0,0,0,0.55);--tert:rgba(0,0,0,0.32);--gold:#C4A265;--charcoal:#1C1A18;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);background:var(--cream);
+    -webkit-font-smoothing:antialiased;position:relative;padding:0 24px 120px}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(40% 50% at 18% 18%, rgba(199,178,214,0.26), transparent 70%),
+      radial-gradient(45% 55% at 82% 20%, rgba(244,206,184,0.28), transparent 70%),
+      radial-gradient(50% 60% at 50% 95%, rgba(206,221,217,0.42), transparent 70%),
+      linear-gradient(160deg,#E7EDE9,#F2F5F2 55%,#CEDDD9)}
+  .wrap{position:relative;z-index:1;max-width:1020px;margin:0 auto}
+  header{padding:64px 0 10px;text-align:center}
+  .kicker{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--tert)}
+  h1{font-weight:300;font-size:32px;letter-spacing:-0.3px;color:rgba(0,0,0,0.72);margin-top:10px}
+  .lede{font-size:14px;font-weight:300;color:var(--label);margin-top:12px;line-height:1.6;max-width:62ch;margin-left:auto;margin-right:auto}
+  .pill{display:inline-block;margin-top:14px;font-size:11px;font-weight:500;letter-spacing:0.4px;
+    color:#7a4a3a;background:rgba(194,91,78,0.10);border:1px solid rgba(194,91,78,0.32);border-radius:999px;padding:5px 14px}
+
+  .card{background:rgba(255,255,255,0.46);border:0.5px solid rgba(255,255,255,0.7);
+    box-shadow:0 1px 0 rgba(255,255,255,0.5) inset, 0 18px 50px -28px rgba(0,0,0,0.30);
+    border-radius:26px;padding:32px;margin-top:24px;backdrop-filter:blur(8px)}
+  .seclabel{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--tert);margin-bottom:4px}
+  .secnote{font-size:13px;font-weight:300;color:var(--label);line-height:1.55;margin-bottom:18px;max-width:66ch}
+
+  .feat{display:flex;flex-wrap:wrap;gap:30px;align-items:center;justify-content:center;
+    border-radius:20px;background:linear-gradient(160deg,#EAF0EC,#F4F6F3 55%,#DDE8E3);
+    border:0.5px solid rgba(255,255,255,0.6);padding:40px 28px}
+  .feathero{display:flex;flex-direction:column;align-items:center;gap:24px;min-width:280px}
+  .wordmark{text-align:center;line-height:1.5}
+  .wordmark div{font-weight:300;text-transform:uppercase;color:rgba(0,0,0,0.78)}
+  .wordmark .l1{font-size:20px;letter-spacing:0.62em;text-indent:0.62em}
+  .wordmark .l2{font-size:20px;letter-spacing:0.42em;text-indent:0.42em}
+  .featside{min-width:300px;max-width:400px}
+  .featname{font-size:22px;font-weight:300;color:rgba(0,0,0,0.8)}
+  .featsub{font-size:13px;font-weight:300;color:var(--label);line-height:1.55;margin-top:8px}
+  .ctxrow{display:flex;gap:16px;align-items:flex-end;margin-top:22px;flex-wrap:wrap}
+  .sq{border-radius:26%;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 16px 36px -18px rgba(0,0,0,0.5);border:0.5px solid rgba(0,0,0,0.06)}
+  .sq.cream{background:linear-gradient(160deg,#E7EDE9,#F2F5F2 55%,#CEDDD9)}
+  .sq.dark{background:linear-gradient(160deg,#26231F,#1C1A18)}
+  .ctxcap{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--tert);text-align:center;margin-top:8px}
+  .tabchip{border-radius:14px;background:rgba(255,255,255,0.7);border:0.5px solid rgba(255,255,255,0.8);
+    display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px -12px rgba(0,0,0,0.4)}
+  .conf{font-size:11px;font-weight:300;color:rgba(0,0,0,0.45);margin-top:14px;line-height:1.55;
+    border-left:2px solid rgba(196,162,101,0.5);padding-left:10px}
+  .conf b{font-weight:600;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--tert);display:block;margin-bottom:2px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+  .concept{cursor:pointer;text-align:center;padding:24px 18px 18px;border-radius:18px;
+    background:linear-gradient(160deg,#EEF1EE,#F5F6F4);border:1.5px solid rgba(255,255,255,0.7);transition:all .15s ease}
+  .concept:hover{transform:translateY(-2px);box-shadow:0 16px 36px -22px rgba(0,0,0,0.35)}
+  .concept.sel{border-color:rgba(196,162,101,0.65);box-shadow:0 0 0 1px rgba(196,162,101,0.35), 0 16px 36px -22px rgba(0,0,0,0.3)}
+  .cname{font-size:14px;font-weight:400;color:rgba(0,0,0,0.8);margin-top:14px}
+  .csub{font-size:11.5px;font-weight:300;color:var(--label);line-height:1.5;margin-top:5px;min-height:50px}
+  .crow{display:flex;gap:10px;justify-content:center;align-items:flex-end;margin-top:12px}
+  .mypick{display:inline-block;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#7a6428;
+    background:rgba(196,162,101,0.16);border:1px solid rgba(196,162,101,0.4);border-radius:999px;padding:3px 10px;margin-top:10px}
+
+  .foot{font-size:12px;font-weight:300;color:var(--label);line-height:1.6;margin-top:28px;text-align:center}
+  .foot b{font-weight:500;color:rgba(0,0,0,0.7)}
+  .goldline{height:1px;width:60px;background:var(--gold);opacity:.5;margin:26px auto 0;border-radius:1px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">Brand mark · round 3 — the heritage family</div>
+    <h1>Ring + center, explored</h1>
+    <p class="lede">Heritage Core resonated, so this round stays in that family: one ring, something meaningful at (or on) it. Every concept carries the legacy DNA — the original INTO mark was a navy ring with a gold core. Each card includes an honest <b>conflict check</b>, because that's how Vesica died.</p>
+    <div class="pill">Vesica retired — two overlapping circles is Raya's mark. Too close to the inspo.</div>
+  </header>
+
+  <section class="card">
+    <div class="seclabel">Featured</div>
+    <div class="feat">
+      <div class="feathero">
+        <div id="featMark"></div>
+        <div class="wordmark"><div class="l1">INTO</div><div class="l2">MEMBERS</div></div>
+      </div>
+      <div class="featside">
+        <div class="featname" id="featName"></div>
+        <div class="featsub" id="featSub"></div>
+        <div class="ctxrow">
+          <div><div class="sq cream" style="width:104px;height:104px" id="featIconCream"></div><div class="ctxcap">icon · light</div></div>
+          <div><div class="sq dark" style="width:104px;height:104px" id="featIconDark"></div><div class="ctxcap">icon · dark</div></div>
+          <div><div class="tabchip" style="width:64px;height:64px" id="featTab"></div><div class="ctxcap">tab · 24px</div></div>
+        </div>
+        <div class="conf" id="featConf"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="seclabel">The family</div>
+    <div class="secnote">Click to feature. Gold is used only as the core/tittle — the status accent the design system already owns, and what the legacy mark did in 2016.</div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <div class="goldline"></div>
+  <p class="foot"><b>Working explorations, not final art.</b> The winner goes through the existing LayeredO pipeline (app, icon, splash, loader, tab) in one pass — and a ring-family mark reads clean at 24px, so the tab no longer needs a special-case glyph.</p>
+</div>
+
+<script>
+  const INK = "#14110E", GOLD = "#C4A265";
+
+  const CONCEPTS = [
+    {
+      id: "heritage",
+      name: "Heritage Core",
+      sub: "The baseline from round 2 — one confident ring, gold at the center. The legacy mark, modernized.",
+      conf: "Structurally Target-adjacent (their bullseye is red, with a much fatter core). Palette, proportion and the thin core keep real distance — but worth a designer pass on core size.",
+      draw: (c, g) => `
+        <circle cx="512" cy="512" r="288" fill="none" stroke="${c}" stroke-width="74"/>
+        <circle cx="512" cy="512" r="92" fill="${g ? GOLD : c}"/>`
+    },
+    {
+      id: "icore",
+      name: "i-Core",
+      sub: "The member inside the world: a minimal “i” standing inside the O — it literally spells INTO. Unifies the legacy script-i, the O, and the gold dot in one mark.",
+      conf: "Adjacent to the ⓘ info-glyph — mitigated by the gold tittle, the heavy bar, and the thick ring (info icons are thin + mono). Needs designer finesse, but the concept is the strongest story in the set.",
+      pick: true,
+      draw: (c, g) => `
+        <circle cx="512" cy="512" r="300" fill="none" stroke="${c}" stroke-width="54"/>
+        <circle cx="512" cy="386" r="62" fill="${g ? GOLD : c}"/>
+        <rect x="458" y="492" width="108" height="218" rx="54" fill="${c}"/>`
+    },
+    {
+      id: "orbitdot",
+      name: "Golden Hour",
+      sub: "The gold dot rides the ring — a member arriving at the circle. Quietly kinetic; the dot can travel the ring as the loading animation.",
+      conf: "Low conflict. Some podcast/audio-app energy in the dot-on-ring family, but none in this register or palette.",
+      draw: (c, g) => `
+        <circle cx="512" cy="512" r="288" fill="none" stroke="${c}" stroke-width="64"/>
+        <circle cx="${(512 + 288 * Math.cos(-Math.PI/4)).toFixed(0)}" cy="${(512 + 288 * Math.sin(-Math.PI/4)).toFixed(0)}" r="64" fill="${g ? GOLD : c}"/>`
+    },
+    {
+      id: "halo",
+      name: "Halo",
+      sub: "Inner Circle meets Heritage: a thin outer halo around the bold ring, gold at the heart. Three tiers — world, members, core.",
+      conf: "Concentric marks brush against the record/roundel family (incl. Target again). The asymmetric ring weights keep it distinct.",
+      draw: (c, g) => `
+        <circle cx="512" cy="512" r="334" fill="none" stroke="${c}" stroke-width="16"/>
+        <circle cx="512" cy="512" r="236" fill="none" stroke="${c}" stroke-width="58"/>
+        <circle cx="512" cy="512" r="78" fill="${g ? GOLD : c}"/>`
+    },
+    {
+      id: "eclipsecore",
+      name: "Eclipse Core",
+      sub: "The gold core drifts off-center inside the ring — tension, motion, a world mid-alignment. The most editorial of the family.",
+      conf: "Lowest conflict in the set. Off-center cores are rare in app marks; the asymmetry is ownable.",
+      draw: (c, g) => `
+        <circle cx="512" cy="512" r="294" fill="none" stroke="${c}" stroke-width="60"/>
+        <circle cx="592" cy="430" r="96" fill="${g ? GOLD : c}"/>`
+    },
+    {
+      id: "keyhole",
+      name: "Keyhole",
+      sub: "The O as a keyhole — private access made literal. The most members-club metaphor in the family.",
+      conf: "Keyholes are owned by security/password apps (1Password-era tropes) and can read utility rather than luxury. Listed for completeness; I'd rank it last.",
+      draw: (c) => `
+        <circle cx="512" cy="512" r="294" fill="none" stroke="${c}" stroke-width="58"/>
+        <circle cx="512" cy="448" r="88" fill="${c}"/>
+        <path d="M474 506 L550 506 L584 668 Q512 700 440 668 Z" fill="${c}"/>`
+    },
+  ];
+
+  function svg(concept, size, color, gold) {
+    return `<svg width="${size}" height="${size}" viewBox="0 0 1024 1024">${concept.draw(color, gold)}</svg>`;
+  }
+
+  let selected = "icore";
+  function renderFeat() {
+    const c = CONCEPTS.find(x => x.id === selected);
+    document.getElementById("featMark").innerHTML = svg(c, 200, INK, true);
+    document.getElementById("featName").textContent = c.name;
+    document.getElementById("featSub").textContent = c.sub;
+    document.getElementById("featConf").innerHTML = "<b>Conflict check</b>" + c.conf;
+    document.getElementById("featIconCream").innerHTML = svg(c, 74, INK, true);
+    document.getElementById("featIconDark").innerHTML = svg(c, 74, "#FFFFFF", true);
+    document.getElementById("featTab").innerHTML = svg(c, 24, "rgba(0,0,0,0.95)", false);
+    document.querySelectorAll(".concept").forEach(el =>
+      el.classList.toggle("sel", el.dataset.id === selected));
+  }
+
+  document.getElementById("grid").innerHTML = CONCEPTS.map(c => `
+    <div class="concept" data-id="${c.id}">
+      ${svg(c, 116, INK, true)}
+      <div class="cname">${c.name}</div>
+      <div class="csub">${c.sub}</div>
+      <div class="crow">
+        <div class="sq cream" style="width:54px;height:54px">${svg(c, 38, INK, true)}</div>
+        <div class="sq dark" style="width:54px;height:54px">${svg(c, 38, "#FFFFFF", true)}</div>
+        <div class="tabchip" style="width:44px;height:44px">${svg(c, 24, "rgba(0,0,0,0.95)", false)}</div>
+      </div>
+      ${c.pick ? '<div class="mypick">my pick</div>' : ''}
+    </div>`).join("");
+
+  document.querySelectorAll(".concept").forEach(el =>
+    el.addEventListener("click", () => { selected = el.dataset.id; renderFeat(); }));
+  renderFeat();
+</script>
+</body>
+</html>
